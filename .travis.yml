@@ -303,6 +303,9 @@ script:
  - $TRAVIS_BUILD_DIR/.travis/script-$TRAVIS_OS_NAME.sh
  - $TRAVIS_BUILD_DIR/.travis/test.sh
 # only on osx for now
+ - echo $DO_DEPLOY
+ - if [[ ! -z "$DO_DEPLOY" ]]; then echo hi; fi
+ - if [[ -z "$DO_DEPLOY" ]]; then echo hi; fi
  - if [[ ! -z "$DO_DEPLOY" ]]; then $TRAVIS_BUILD_DIR/.travis/package-$TRAVIS_OS_NAME.sh; fi
 
 before_deploy:
